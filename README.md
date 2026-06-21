@@ -1,7 +1,7 @@
 # 🌤️ Weather App
 
 A sleek and responsive weather application built with **HTML, CSS, and JavaScript** that provides real-time weather information
-for three cities in South Africa, namely, Roodepoort, Johannesburg and Cape Town.
+for four cities in South Africa, namely, Roodepoort, Johannesburg, Durban and Cape Town.
 
 ---
 
