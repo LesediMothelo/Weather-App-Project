@@ -4,62 +4,62 @@ const SHECODES_BASE_URL = "https://api.shecodes.io/weather/v1/current";
 const CITY_FALLBACKS = {
   roodepoort: {
     city: "Roodepoort",
-    temperature: { current: 10, humidity: 84 },
+    temperature: { current: 10, high: 12, low: 8, humidity: 84 },
     wind: { speed: 6 },
     condition: { description: "moderate rain" },
     forecast: [
-      { day: "Sunday", icon: "🌧️", temp: 10 },
-      { day: "Monday", icon: "🌤️", temp: 8 },
-      { day: "Tuesday", icon: "⛅", temp: 17 },
-      { day: "Wednesday", icon: "🌧️", temp: 20 },
-      { day: "Thursday", icon: "☁️", temp: 21 },
-      { day: "Friday", icon: "🌤️", temp: 25 },
-      { day: "Saturday", icon: "🌦️", temp: 23 },
+      { day: "Sunday", icon: "🌧️", high: 10, low: 8 },
+      { day: "Monday", icon: "🌤️", high: 12, low: 6 },
+      { day: "Tuesday", icon: "⛅", high: 17, low: 11 },
+      { day: "Wednesday", icon: "🌧️", high: 20, low: 14 },
+      { day: "Thursday", icon: "☁️", high: 21, low: 15 },
+      { day: "Friday", icon: "🌤️", high: 25, low: 18 },
+      { day: "Saturday", icon: "🌦️", high: 23, low: 16 },
     ],
   },
   johannesburg: {
     city: "Johannesburg",
-    temperature: { current: 18, humidity: 45 },
+    temperature: { current: 18, high: 20, low: 14, humidity: 45 },
     wind: { speed: 13 },
     condition: { description: "clear sky" },
     forecast: [
-      { day: "Sunday", icon: "☀️", temp: 18 },
-      { day: "Monday", icon: "🌤️", temp: 20 },
-      { day: "Tuesday", icon: "⛅", temp: 19 },
-      { day: "Wednesday", icon: "☀️", temp: 21 },
-      { day: "Thursday", icon: "🌦️", temp: 18 },
-      { day: "Friday", icon: "☀️", temp: 22 },
-      { day: "Saturday", icon: "⛅", temp: 20 },
+      { day: "Sunday", icon: "☀️", high: 18, low: 14 },
+      { day: "Monday", icon: "🌤️", high: 20, low: 15 },
+      { day: "Tuesday", icon: "⛅", high: 19, low: 13 },
+      { day: "Wednesday", icon: "☀️", high: 21, low: 15 },
+      { day: "Thursday", icon: "🌦️", high: 18, low: 12 },
+      { day: "Friday", icon: "☀️", high: 22, low: 16 },
+      { day: "Saturday", icon: "⛅", high: 20, low: 14 },
     ],
   },
   durban: {
     city: "Durban",
-    temperature: { current: 22, humidity: 78 },
+    temperature: { current: 22, high: 25, low: 18, humidity: 78 },
     wind: { speed: 9 },
     condition: { description: "partly cloudy" },
     forecast: [
-      { day: "Sunday", icon: "⛅", temp: 22 },
-      { day: "Monday", icon: "☀️", temp: 24 },
-      { day: "Tuesday", icon: "🌤️", temp: 23 },
-      { day: "Wednesday", icon: "🌧️", temp: 21 },
-      { day: "Thursday", icon: "⛅", temp: 22 },
-      { day: "Friday", icon: "☀️", temp: 25 },
-      { day: "Saturday", icon: "🌦️", temp: 23 },
+      { day: "Sunday", icon: "⛅", high: 22, low: 18 },
+      { day: "Monday", icon: "☀️", high: 24, low: 19 },
+      { day: "Tuesday", icon: "🌤️", high: 23, low: 18 },
+      { day: "Wednesday", icon: "🌧️", high: 21, low: 17 },
+      { day: "Thursday", icon: "⛅", high: 22, low: 18 },
+      { day: "Friday", icon: "☀️", high: 25, low: 20 },
+      { day: "Saturday", icon: "🌦️", high: 23, low: 19 },
     ],
   },
   "cape town": {
     city: "Cape Town",
-    temperature: { current: 16, humidity: 64 },
+    temperature: { current: 16, high: 18, low: 12, humidity: 64 },
     wind: { speed: 10 },
     condition: { description: "partly cloudy" },
     forecast: [
-      { day: "Sunday", icon: "⛅", temp: 16 },
-      { day: "Monday", icon: "🌧️", temp: 15 },
-      { day: "Tuesday", icon: "🌥️", temp: 17 },
-      { day: "Wednesday", icon: "🌦️", temp: 16 },
-      { day: "Thursday", icon: "☀️", temp: 18 },
-      { day: "Friday", icon: "🌤️", temp: 19 },
-      { day: "Saturday", icon: "☁️", temp: 17 },
+      { day: "Sunday", icon: "⛅", high: 16, low: 12 },
+      { day: "Monday", icon: "🌧️", high: 15, low: 11 },
+      { day: "Tuesday", icon: "🌥️", high: 17, low: 13 },
+      { day: "Wednesday", icon: "🌦️", high: 16, low: 12 },
+      { day: "Thursday", icon: "☀️", high: 18, low: 14 },
+      { day: "Friday", icon: "🌤️", high: 19, low: 15 },
+      { day: "Saturday", icon: "☁️", high: 17, low: 13 },
     ],
   },
 };
@@ -92,9 +92,31 @@ function displayForecast(forecast) {
       forecastIcon.textContent = item.icon;
     }
     if (forecastTemp) {
-      forecastTemp.textContent = `${item.temp}°C`;
+      if (item.high !== undefined && item.low !== undefined) {
+        forecastTemp.textContent = `H:${item.high}°C / L:${item.low}°C`;
+      } else {
+        forecastTemp.textContent = `${item.temp}°C`;
+      }
     }
   });
+}
+
+function getHighTemp(data) {
+  return (
+    data?.temperature?.high ??
+    data?.temperature?.maximum ??
+    data?.temperature?.max ??
+    data?.temperature?.current
+  );
+}
+
+function getLowTemp(data) {
+  return (
+    data?.temperature?.low ??
+    data?.temperature?.minimum ??
+    data?.temperature?.min ??
+    data?.temperature?.current
+  );
 }
 
 function isNightTime(date) {
@@ -151,6 +173,18 @@ function displayWeather(response) {
     cityElement.textContent = data.city;
   }
   temperatureElement.textContent = Math.round(data.temperature.current);
+
+  let highTempElement = document.querySelector("#current-high-temp");
+  let lowTempElement = document.querySelector("#current-low-temp");
+  let highTemp = Math.round(getHighTemp(data));
+  let lowTemp = Math.round(getLowTemp(data));
+
+  if (highTempElement) {
+    highTempElement.textContent = `H: ${highTemp}°C`;
+  }
+  if (lowTempElement) {
+    lowTempElement.textContent = `L: ${lowTemp}°C`;
+  }
 
   let iconElement = document.querySelector("#current-temperature-icon");
   let night = isNightTime(new Date());
