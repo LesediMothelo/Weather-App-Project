@@ -32,6 +32,21 @@ const CITY_FALLBACKS = {
       { day: "Saturday", icon: "⛅", temp: 20 },
     ],
   },
+  durban: {
+    city: "Durban",
+    temperature: { current: 22, humidity: 78 },
+    wind: { speed: 9 },
+    condition: { description: "partly cloudy" },
+    forecast: [
+      { day: "Sunday", icon: "⛅", temp: 22 },
+      { day: "Monday", icon: "☀️", temp: 24 },
+      { day: "Tuesday", icon: "🌤️", temp: 23 },
+      { day: "Wednesday", icon: "🌧️", temp: 21 },
+      { day: "Thursday", icon: "⛅", temp: 22 },
+      { day: "Friday", icon: "☀️", temp: 25 },
+      { day: "Saturday", icon: "🌦️", temp: 23 },
+    ],
+  },
   "cape town": {
     city: "Cape Town",
     temperature: { current: 16, humidity: 64 },
@@ -45,21 +60,6 @@ const CITY_FALLBACKS = {
       { day: "Thursday", icon: "☀️", temp: 18 },
       { day: "Friday", icon: "🌤️", temp: 19 },
       { day: "Saturday", icon: "☁️", temp: 17 },
-    ],
-  },
-  durban: {
-    city: "Durban",
-    temperature: { current: 26, humidity: 78 },
-    wind: { speed: 12 },
-    condition: { description: "partly cloudy" },
-    forecast: [
-      { day: "Sunday", icon: "⛅", temp: 26 },
-      { day: "Monday", icon: "🌦️", temp: 25 },
-      { day: "Tuesday", icon: "☀️", temp: 27 },
-      { day: "Wednesday", icon: "⛅", temp: 26 },
-      { day: "Thursday", icon: "🌧️", temp: 24 },
-      { day: "Friday", icon: "☀️", temp: 28 },
-      { day: "Saturday", icon: "🌤️", temp: 27 },
     ],
   },
 };
