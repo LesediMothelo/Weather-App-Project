@@ -4,13 +4,13 @@ const SHECODES_BASE_URL = "https://api.shecodes.io/weather/v1/current";
 const CITY_FALLBACKS = {
   roodepoort: {
     city: "Roodepoort",
-    temperature: { current: 24, humidity: 87 },
-    wind: { speed: 7.2 },
+    temperature: { current: 10, humidity: 84 },
+    wind: { speed: 6 },
     condition: { description: "moderate rain" },
     forecast: [
-      { day: "Sunday", icon: "🌧️", temp: 24 },
-      { day: "Monday", icon: "🌦️", temp: 22 },
-      { day: "Tuesday", icon: "⛅", temp: 23 },
+      { day: "Sunday", icon: "🌧️", temp: 10 },
+      { day: "Monday", icon: "🌤️", temp: 8 },
+      { day: "Tuesday", icon: "⛅", temp: 17 },
       { day: "Wednesday", icon: "🌧️", temp: 20 },
       { day: "Thursday", icon: "☁️", temp: 21 },
       { day: "Friday", icon: "🌤️", temp: 25 },
