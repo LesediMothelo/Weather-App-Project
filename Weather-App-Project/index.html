@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>Weather-App</title>
+  </head>
+  <body>
+    <div class="video-container">
+      <video>
+        src="https://i.pinimg.com/originals/3a/76/20/3a762091c6d9fb10d75ed9793d3beb29.gif"
+        type="video/mp4" </video>
+    </div>
+    <div class="weather-app">
+      <header>
+        <form>
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            required
+            class="search-input"
+            id="search-input"
+          />
+          <button type="submit" class="search-button">Search</button>
+        </form>
+      </header>
+      <main>
+        <div class="current-weather">
+          <div>
+            <h1 class="current-city">Roodepoort</h1>
+            <p class="current-details">
+              <span class="currentDayTime">Sunday 16:26</span>, moderate rain
+              <br />
+              Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
+            </p>
+          </div>
+          <div class="current-temperature">
+            <span class="current-temperature-icon">🌧️</span
+            ><span class="current-temperature-value" id="current-temperature">24</span
+            ><span class="current-temperature-unit">°C</span>
+          </div>
+        </div>
+        <section class="forecast">
+          <div class="forecast-card">
+            <span class="forecast-day">Sunday</span>
+            <span class="forecast-icon">🌧️</span>
+            <span class="forecast-temp">24°C</span>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Monday</span>
+            <span class="forecast-icon">🌦️</span>
+            <span class="forecast-temp">22°C</span>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Tuesday</span>
+            <span class="forecast-icon">⛅</span>
+            <span class="forecast-temp">23°C</span>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Wednesday</span>
+            <span class="forecast-icon">🌧️</span>
+            <span class="forecast-temp">20°C</span>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Thursday</span>
+            <span class="forecast-icon">☁️</span>
+            <span class="forecast-temp">21°C</span>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Friday</span>
+            <span class="forecast-icon">🌤️</span>
+            <span class="forecast-temp">25°C</span>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Saturday</span>
+            <span class="forecast-icon">🌦️</span>
+            <span class="forecast-temp">23°C</span>
+          </div>
+        </section>
+      </main>
+      <footer>
+         © 2026. This project was coded by
+        <a href="https://github.com/LesediMothelo" target="_blank"> Lesedi Mothelo</a>
+        and is open-sourced on
+        <a href="https://github.com/lesedimothelo/vanilla-weather-search" target="_blank">GitHub</a> and is hosted on
+        <a href="https://lesedimothelo.github.io/vanilla-weather-search/" target="_blank">Netlify</a>
+      </footer>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
