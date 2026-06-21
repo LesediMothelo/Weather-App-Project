@@ -47,6 +47,21 @@ const CITY_FALLBACKS = {
       { day: "Saturday", icon: "☁️", temp: 17 },
     ],
   },
+  durban: {
+    city: "Durban",
+    temperature: { current: 26, humidity: 78 },
+    wind: { speed: 12 },
+    condition: { description: "partly cloudy" },
+    forecast: [
+      { day: "Sunday", icon: "⛅", temp: 26 },
+      { day: "Monday", icon: "🌦️", temp: 25 },
+      { day: "Tuesday", icon: "☀️", temp: 27 },
+      { day: "Wednesday", icon: "⛅", temp: 26 },
+      { day: "Thursday", icon: "🌧️", temp: 24 },
+      { day: "Friday", icon: "☀️", temp: 28 },
+      { day: "Saturday", icon: "🌤️", temp: 27 },
+    ],
+  },
 };
 
 function getFallbackWeather(city) {
