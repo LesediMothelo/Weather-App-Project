@@ -82,6 +82,28 @@ function displayForecast(forecast) {
   });
 }
 
+function isNightTime(date) {
+  let hour = date.getHours();
+  return hour < 6 || hour >= 18;
+}
+
+function getCurrentWeatherIcon(description, isNight) {
+  let desc = description.toLowerCase();
+  if (isNight) {
+    if (desc.includes("clear")) return "🌙";
+    if (desc.includes("cloud")) return "☁️";
+    if (desc.includes("rain")) return "🌧️";
+    if (desc.includes("snow")) return "🌨️";
+    return "🌙";
+  }
+
+  if (desc.includes("clear")) return "☀️";
+  if (desc.includes("cloud")) return desc.includes("partly") ? "⛅" : "☁️";
+  if (desc.includes("rain")) return "🌧️";
+  if (desc.includes("snow")) return "🌨️";
+  return "🌤️";
+}
+
 // Function to format the time correctly (e.g., 09:05)
 function formatTime(now) {
   let day = days[now.getDay()];
@@ -114,6 +136,12 @@ function displayWeather(response) {
     cityElement.textContent = data.city;
   }
   temperatureElement.textContent = Math.round(data.temperature.current);
+
+  let iconElement = document.querySelector("#current-temperature-icon");
+  let night = isNightTime(new Date());
+  if (iconElement) {
+    iconElement.textContent = getCurrentWeatherIcon(data.condition.description, night);
+  }
 
   if (detailsElement) {
     detailsElement.innerHTML = `
