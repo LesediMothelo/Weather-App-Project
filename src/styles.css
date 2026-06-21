@@ -34,7 +34,7 @@ a {
 }
 
 .weather-app {
-  background: white;
+  background: rgba(0, 0, 0, 0);
   max-width: 500px;
   width: min(600px, 100%);
   margin: 0 auto;
@@ -84,9 +84,9 @@ main {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 14px;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(136, 93, 241, 0.18);
+  gap: 12px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   padding: 18px 18px 14px;
 }
@@ -99,9 +99,9 @@ main {
 
 .current-temp-highlow {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   font-size: 14px;
-  color: #5a4d90;
+  color: #ffffff;
 }
 
 .current-weather {
@@ -135,8 +135,8 @@ main {
 }
 
 .forecast-card {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(136, 93, 241, 0.18);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   padding: 16px 14px;
   min-height: 138px;
