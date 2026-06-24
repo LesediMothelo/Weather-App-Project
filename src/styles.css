@@ -125,6 +125,14 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 18px 30px rgba(65, 50, 100, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .forecast-day {
